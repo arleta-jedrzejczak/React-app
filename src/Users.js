@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 class Users extends Component {
   render() {
-    console.log(this.props)
     const {users} = this.props
     const usersList = users.map(user => {
       return (
