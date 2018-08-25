@@ -4,7 +4,7 @@ import 'react-table/react-table.css'
 
 class MyTable extends Component {
   render() {
-    const {users, deleteUser, saveStorage} = this.props
+    const {users, checkUser, saveStorage} = this.props
     return (
       <div>
         <h2 className="center">Users</h2>
@@ -38,7 +38,7 @@ class MyTable extends Component {
             }
           ]}
           getTrProps={(state, rowInfo) => ({
-            onClick: e => {deleteUser(rowInfo.original.id), saveStorage(state.page, state.pageRows.length)}
+            onClick: e => {checkUser(rowInfo.original.id), saveStorage(state.page, state.pageRows.length), this.props.history.push('/user/' + rowInfo.original.id)}
           })}
           defaultPageSize={10}
           className="-striped -highlight clickable"

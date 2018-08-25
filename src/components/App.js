@@ -6,7 +6,7 @@ import Navbar from './Navbar'
 import AddUser from './AddUser'
 import MyTable from './MyTable'
 import axios from 'axios'
-// import User from './User'
+import User from './User'
 // import { createBrowserHistory } from 'history'
 // import EditUser from './EditUser'
 // import Home from './Home'
@@ -14,7 +14,9 @@ import axios from 'axios'
 
 class App extends Component {
   state = {
-    users: []
+    users: [],
+    currId: null,
+    user: {}
   }
   addUser = (user) => {
     user.id = Math.floor((Math.random() * 10) + 11)
@@ -28,6 +30,18 @@ class App extends Component {
       .catch(error => {
         alert(error)
       })
+  }
+  checkUser = (id) => {
+    let _this = this
+    this.state.users.forEach(user => {
+      if (user.id === id) {
+        _this.neWuser = user
+      }
+    })
+    this.setState({
+      currId: id,
+      user: _this.neWuser
+    })
   }
   deleteUser = (id) => {
     let users = this.state.users.filter(user => {
@@ -67,8 +81,9 @@ class App extends Component {
           <p className="center">Welcome</p>
           <Navbar/>
           <div className="container">
-            <Route exact path="/" render={(props) => <MyTable {...props} saveStorage = {this.saveStorage} deleteUser={this.deleteUser} users={this.state.users}/>} />
+            <Route exact path="/" render={(props) => <MyTable {...props} saveStorage={this.saveStorage} checkUser={this.checkUser} users={this.state.users}/>} />
             <Route path="/add" render={(props) => <AddUser {...props} addUser={this.addUser}/>} />
+            <Route path="/user/:currId" render={(props) => <User {...props} user={this.state.user} deleteUser={this.deleteUser}/>} />
           </div>
         </div>
       </Router>
