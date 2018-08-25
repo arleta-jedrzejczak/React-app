@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class AddUser extends Component {
+class EditUser extends Component {
   state = {
     name: null,
     age: null
@@ -17,7 +17,6 @@ class AddUser extends Component {
   render() {
     return (
       <div className="usersList">
-        <h2 className="center">Add user</h2>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="name">Name:</label>
           <input type="text" id="name" onChange={this.handleChange}/>
@@ -36,4 +35,4 @@ class AddUser extends Component {
   }
 }
 
-export default AddUser
+export default EditUser

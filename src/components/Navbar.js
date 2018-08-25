@@ -1,36 +1,19 @@
 import React from 'react'
+import {
+  NavLink
+} from 'react-router-dom'
 
-const Navbar = ({users, deleteUser}) => {
-  // FIRST WAY
-  const usersList = users.map(user => {
-    if (user.age > 27) {
-      return (
-        <div className="ninja" key={user.id}>
-          <div>Name: {user.name}</div>
-          <div>Age: {user.age}</div>
-          <button onClick={() => {deleteUser(user.id)}}>Delete user</button>
-        </div>
-      )
-    }
-    else {
-      return null
-    }
-  })
-  // SECOND WAY
-  // const usersList = users.map(user => {
-  //   return user.age > 27 ? (
-  //     <div className="ninja" key={user.id}>
-  //       <div>Name: {user.name}</div>
-  //       <div>Age: {user.age}</div>
-  //     </div>
-  //   ) : null
-  // })
+const Navbar = () => {
   return (
-    <div className="usersList">
-      {usersList}
-    </div>
-  );
-
+    <nav className="nav-wrapper grey darken-2">
+      <div className="containter">
+        <ul className="right hide-on-med-and-down">
+          <li><NavLink to="/" className="orange darken-4 btn">Home</NavLink></li>
+          <li><NavLink to="/add" className="orange darken-4 btn">Add user</NavLink></li>
+        </ul>
+      </div>
+    </nav>
+  )
 }
 
 export default Navbar
