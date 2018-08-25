@@ -1,0 +1,7 @@
+.clickable {
+  cursor: pointer
+}
+
+select {
+  display: block !important
+}

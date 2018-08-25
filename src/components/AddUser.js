@@ -3,7 +3,10 @@ import React, { Component } from 'react'
 class AddUser extends Component {
   state = {
     name: null,
-    age: null
+    phone: null,
+    email: null,
+    username: null,
+    website: null
   }
   handleChange = (e) => {
     this.setState({
@@ -13,6 +16,7 @@ class AddUser extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.addUser(this.state)
+    this.props.history.push('/')
   }
   render() {
     return (
@@ -20,7 +24,7 @@ class AddUser extends Component {
         <h2 className="center">Add user</h2>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="name">Name:</label>
-          <input type="text" id="name" onChange={this.handleChange}/>
+          <input type="text" id="name" required onChange={this.handleChange}/>
           <label htmlFor="phone">Phone:</label>
           <input type="text" id="phone" onChange={this.handleChange}/>
           <label htmlFor="email">Email:</label>

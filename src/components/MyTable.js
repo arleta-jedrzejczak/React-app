@@ -11,6 +11,7 @@ class MyTable extends Component {
         <h2 className="center">Users</h2>
         <ReactTable
           data={users}
+          filterable
           columns={[
             {
               Header: "Id",
@@ -41,7 +42,7 @@ class MyTable extends Component {
             onClick: e => {deleteUser(rowInfo.original.id)}
           })}
           defaultPageSize={10}
-          // className="-striped -highlight clickable"
+          className="-striped -highlight clickable"
         />
       </div>
     )

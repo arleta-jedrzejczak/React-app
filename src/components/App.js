@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import './App.css'
+import '../styles/App.css'
+import '../styles/materialize.min.css'
 import Navbar from './Navbar'
 import AddUser from './AddUser'
 import MyTable from './MyTable'
@@ -12,9 +13,7 @@ import axios from 'axios'
 // import Users from './Users'
 
 class App extends Component {
-  _this = this
   state = {
-    displayUsers: 10,
     users: []
   }
   addUser = (user) => {
@@ -25,11 +24,9 @@ class App extends Component {
       users: users
     })
     axios.post(`https://jsonplaceholder.typicode.com/users/`, user)
-      .then(response => { 
-        console.log(response)
-      })
+      .then()
       .catch(error => {
-        console.log(error.response)
+        alert(error)
       })
   }
   deleteUser = (id) => {
@@ -40,31 +37,21 @@ class App extends Component {
       users: users
     })
     axios.delete(`https://jsonplaceholder.typicode.com/users/` + id)
-      .then(response => { 
-        console.log(response)
-      })
+      .then()
       .catch(error => {
-        console.log(error.response)
+        alert(error)
       })
-  }
-  shouldComponentUpdate () {
-    return true
+    alert(`User ${id} deleted from table`)
   }
   componentDidMount () {
-    //fires only once (first mounted), good place for getting data from db
     axios.get(`https://jsonplaceholder.typicode.com/users`)
       .then(res => {
         const users = res.data
         this.setState({ users })
-        console.log(res)
       })
       .catch(error => {
-        console.log(error.response)
+        alert(error)
       })
-  }
-  componentDidUpdate (prevProps, prevState) {
-    //fires when props or states changed
-    // console.log(prevProps, prevState)
   }
   render() {
     return (
