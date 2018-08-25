@@ -43,6 +43,12 @@ class App extends Component {
       })
     alert(`User ${id} deleted from table`)
   }
+  saveStorage (page, rows) {
+    localStorage.clear()
+    localStorage.setItem('page', page)
+    localStorage.setItem('rows', rows)
+    console.log(localStorage)
+  }
   componentDidMount () {
     axios.get(`https://jsonplaceholder.typicode.com/users`)
       .then(res => {
@@ -61,7 +67,7 @@ class App extends Component {
           <p className="center">Welcome</p>
           <Navbar/>
           <div className="container">
-            <Route exact path="/" render={(props) => <MyTable {...props} deleteUser={this.deleteUser} users={this.state.users}/>} />
+            <Route exact path="/" render={(props) => <MyTable {...props} saveStorage = {this.saveStorage} deleteUser={this.deleteUser} users={this.state.users}/>} />
             <Route path="/add" render={(props) => <AddUser {...props} addUser={this.addUser}/>} />
           </div>
         </div>
