@@ -33,7 +33,7 @@ class AddUser extends Component {
           <input type="text" id="username" onChange={this.handleChange}/>
           <label htmlFor="website">Website:</label>
           <input type="text" id="website" onChange={this.handleChange}/>
-          <button>Submit</button>
+          <button className="orange darken-4 btn">Submit</button>
         </form>
       </div>
     )

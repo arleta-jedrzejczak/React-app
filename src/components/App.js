@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 import '../styles/App.css'
 import '../styles/materialize.min.css'
 import Navbar from './Navbar'
@@ -7,10 +7,6 @@ import AddUser from './AddUser'
 import MyTable from './MyTable'
 import axios from 'axios'
 import User from './User'
-// import { createBrowserHistory } from 'history'
-// import EditUser from './EditUser'
-// import Home from './Home'
-// import Users from './Users'
 
 class App extends Component {
   state = {
@@ -26,7 +22,9 @@ class App extends Component {
       users: users
     })
     axios.post(`https://jsonplaceholder.typicode.com/users/`, user)
-      .then()
+      .then(response => {
+        console.log(response, user)
+      })
       .catch(error => {
         alert(error)
       })
@@ -77,7 +75,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <h1 className="center">App</h1>
+          <NavLink to="/"><h1 className="center">App</h1></NavLink>
           <p className="center">Welcome</p>
           <Navbar/>
           <div className="container">
