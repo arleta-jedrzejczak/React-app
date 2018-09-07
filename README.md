@@ -1,6 +1,6 @@
 # React App
 > React App is simple training application using React, React router, Axios, React table and Materialize CSS.
-Link to demo: https://laililang.github.io/React-app/
+Link to demo: https://arleta-jedrzejczak.github.io/React-app/
 
 ## Table of contents
 * [Technologies](#technologies)
@@ -34,4 +34,4 @@ Project is finished :)
 This project is licensed under the terms of the MIT license.
 
 ## Contact
-Created by Arleta Jędrzejczak(https://laililang.github.com/Memory/) - feel free to contact me!
+Created by Arleta Jędrzejczak(https://arleta-jedrzejczak.github.com/Memory/) - feel free to contact me!
